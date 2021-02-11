@@ -1,0 +1,218 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "2"
+    meta.helm.sh/release-name: fleet-agent
+    meta.helm.sh/release-namespace: fleet-system
+    objectset.rio.cattle.io/applied: '{"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{"objectset.rio.cattle.io/id":"fleet-agent-bootstrap"},"labels":{"objectset.rio.cattle.io/hash":"f399d0b310fbfb28e9667312fdc7a33954e2b8c8"},"name":"fleet-agent","namespace":"fleet-system"},"spec":{"selector":{"matchLabels":{"app":"fleet-agent"}},"strategy":{},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"fleet-agent"}},"spec":{"affinity":{"nodeAffinity":{"preferredDuringSchedulingIgnoredDuringExecution":[{"preference":{"matchExpressions":[{"key":"fleet.cattle.io/agent","operator":"In","values":["true"]}]},"weight":1}]}},"containers":[{"env":[{"name":"NAMESPACE","valueFrom":{"fieldRef":{"fieldPath":"metadata.namespace"}}},{"name":"CHECKIN_INTERVAL","value":"0s"},{"name":"GENERATION","value":"e320bd56-96c7-4195-94d6-fb77b00cb0a0-2"}],"image":"rancher/fleet-agent:v0.3.3","imagePullPolicy":"IfNotPresent","name":"fleet-agent","resources":{}}],"serviceAccountName":"fleet-agent"}}}}'
+    objectset.rio.cattle.io/id: default-fleet-agent
+  creationTimestamp: "2021-02-03T15:30:47Z"
+  generation: 2
+  labels:
+    app.kubernetes.io/managed-by: Helm
+    objectset.rio.cattle.io/hash: 392b9ca957ef762dfa1e73df3f92d52246d3646d
+  managedFields:
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:objectset.rio.cattle.io/applied: {}
+        f:labels: {}
+      f:spec:
+        f:progressDeadlineSeconds: {}
+        f:replicas: {}
+        f:revisionHistoryLimit: {}
+        f:selector:
+          f:matchLabels:
+            .: {}
+            f:app: {}
+        f:strategy:
+          f:rollingUpdate:
+            .: {}
+            f:maxSurge: {}
+            f:maxUnavailable: {}
+          f:type: {}
+        f:template:
+          f:metadata:
+            f:labels:
+              .: {}
+              f:app: {}
+          f:spec:
+            f:affinity:
+              .: {}
+              f:nodeAffinity:
+                .: {}
+                f:preferredDuringSchedulingIgnoredDuringExecution: {}
+            f:containers:
+              k:{"name":"fleet-agent"}:
+                .: {}
+                f:env:
+                  .: {}
+                  k:{"name":"CHECKIN_INTERVAL"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"GENERATION"}:
+                    .: {}
+                    f:name: {}
+                  k:{"name":"NAMESPACE"}:
+                    .: {}
+                    f:name: {}
+                    f:valueFrom:
+                      .: {}
+                      f:fieldRef:
+                        .: {}
+                        f:apiVersion: {}
+                        f:fieldPath: {}
+                f:image: {}
+                f:imagePullPolicy: {}
+                f:name: {}
+                f:resources: {}
+                f:terminationMessagePath: {}
+                f:terminationMessagePolicy: {}
+            f:dnsPolicy: {}
+            f:restartPolicy: {}
+            f:schedulerName: {}
+            f:securityContext: {}
+            f:serviceAccount: {}
+            f:serviceAccountName: {}
+            f:terminationGracePeriodSeconds: {}
+    manager: fleetcontroller
+    operation: Update
+    time: "2021-02-03T15:30:47Z"
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          f:meta.helm.sh/release-name: {}
+          f:meta.helm.sh/release-namespace: {}
+          f:objectset.rio.cattle.io/id: {}
+        f:labels:
+          f:app.kubernetes.io/managed-by: {}
+          f:objectset.rio.cattle.io/hash: {}
+      f:spec:
+        f:template:
+          f:spec:
+            f:containers:
+              k:{"name":"fleet-agent"}:
+                f:env:
+                  k:{"name":"GENERATION"}:
+                    f:value: {}
+    manager: Go-http-client
+    operation: Update
+    time: "2021-02-03T15:31:06Z"
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          f:deployment.kubernetes.io/revision: {}
+      f:status:
+        f:availableReplicas: {}
+        f:collisionCount: {}
+        f:conditions:
+          .: {}
+          k:{"type":"Available"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:lastUpdateTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"Progressing"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:lastUpdateTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+        f:observedGeneration: {}
+        f:readyReplicas: {}
+        f:replicas: {}
+        f:updatedReplicas: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2021-02-03T15:31:08Z"
+  name: fleet-agent
+  namespace: fleet-system
+  resourceVersion: "440598"
+  selfLink: /apis/apps/v1/namespaces/fleet-system/deployments/fleet-agent
+  uid: 65c2ba96-79d4-44ad-b203-27ac0259b291
+spec:
+  progressDeadlineSeconds: 600
+  replaaicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: fleet-agent
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: fleet-agent
+    spec:
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - preference:
+              matchExpressions:
+              - key: fleet.cattle.io/agent
+                operator: In
+                values:
+                - "true"
+            weight: 1
+      containers:
+      - env:
+        - name: NAMESPACE
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+        - name: CHECKIN_INTERVAL
+          value: 0s
+        - name: GENERATION
+          value: bundle
+        image: rancher/fleet-agent:v0.3.3
+        imagePullPolicy: IfNotPresent
+        name: fleet-agent
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: fleet-agent
+      serviceAccountName: fleet-agent
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 1
+  collisionCount: 1
+  conditions:
+  - lastTransitionTime: "2021-02-03T15:31:04Z"
+    lastUpdateTime: "2021-02-03T15:31:04Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2021-02-03T15:30:47Z"
+    lastUpdateTime: "2021-02-03T15:31:08Z"
+    message: ReplicaSet "fleet-agent-78766965ff" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  observedGeneration: 2
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1
