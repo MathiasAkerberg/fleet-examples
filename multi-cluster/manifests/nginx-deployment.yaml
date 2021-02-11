@@ -4,7 +4,7 @@ metadata:
   name: nginx-deployment
   labels:
     app: nginx
-    test: a
+    test: deployment-label-test
 spec:
   replicas: 1
   selector:
@@ -14,6 +14,7 @@ spec:
     metadata:
       labels:
         app: nginx
+        test: pod-label-test
     spec:
       containers:
       - name: nginx
