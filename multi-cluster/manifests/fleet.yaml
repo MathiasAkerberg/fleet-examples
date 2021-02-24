@@ -4,6 +4,6 @@ targetCustomizations:
   clusterSelector:
     matchLabels:
       management.cattle.io/cluster-display-name: psp-opa-test
-  yaml:
-    overlays:
-    - scale3
+  #yaml:
+  #  overlays:
+  #  - scale3
